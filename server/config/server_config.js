@@ -1,0 +1,11 @@
+export const config = {
+  MYSQL_USER: "root",
+  MYSQL_PASS: "admin_pass",
+  MYSQL_HOST: "localhost",
+  MYSQL_PORT: 3306,
+  MYSQL_DATABASE: "cafe_reserve",
+  APP_PORT: 4442,
+  CLIENT_ORIGIN: "http://localhost:3000",
+  JWT_ACCESS_SECRET: "3730a69680069063451eed3236a4cfd8fb3f8f90eea0b9560aa02cef0ebe6686fc6003cbae4912c69e3cd632927c88797c9e4af5d84e812f8d9e97a79eba0d4f",
+  JWT_REFRESH_SECRET: "84721abcdb322c5b1917d4f36e8fa1257f4754b45534b3b37aad6bce411a2725645ad87eeaf8d086b76c06fabe16bc894183b7de211b29b20f1239abe2985b15",
+}
