@@ -5,6 +5,7 @@ import { selectUser } from "../../store/userSlice";
 import { fetchLogout } from "../../api/userApi";
 import { selectMain } from "../../store/mainSlice";
 import { TNavLang } from "../../types/MainTypes";
+import style from './Navbar.module.css'
 
 function adminRoutes(lang: TNavLang) {
   return (
@@ -62,7 +63,7 @@ export function Navbar() {
 
   const links = role === "admin" ? adminRoutes(navbar) : role === "user" ? userRoutes(navbar) : defaultRoutes(navbar);
   return (
-    <nav className="navbar">
+    <nav className={style.navbar}>
       <div className="logo">
         <Link to="/">{navbar.logo}</Link>
       </div>
