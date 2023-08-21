@@ -1,0 +1,73 @@
+.content {
+    width: 100%;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .start,
+    .food,
+    .menu,
+    .interer {
+        width: 100%;
+        height: 900px;
+        background-repeat: space;
+        background-size: cover;
+    }
+    .start {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .title {
+            font-size: 10vw;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            color: azure;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+    }
+    .food {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        > button {
+            width: 20vw;
+            height: 5vw;
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Times New Roman', Times, serif;
+            
+        }
+    }
+    .interer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .shef {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        min-height: 700px;
+        .imgShef {
+            width: 30%;
+            height: 30vw;
+            background-size: cover;
+            border-radius: 2%;
+        }
+        .resume {
+            width: 60%;
+            min-height: 50vh;
+        }
+    }
+}
+

@@ -1,0 +1,12 @@
+.navbar {
+    width: 80%;
+    height: 40px;
+    background-color: green;
+    display: flex;
+    position: fixed;
+    top: 0;
+}
+
+.navbar ul {
+    display: flex;
+}
