@@ -15,5 +15,16 @@ export const langData: TLanguageData = {
     passwordPlaceholder: "Password",
     phoneErrorMessage: "Must be valid phone number.",
     passwordErrorMessage: "Must be valid password.",
+    submitButton: "Log in",
+  },
+  registerForm: {
+    title: "Set you phone number and password.",
+    namePlaceholder: "Your name",
+    phonePlaceholder: "Phone number",
+    passwordPlaceholder: "Password",
+    nameErrorMessage: "Must be valid user name.",
+    phoneErrorMessage: "Must be valid phone number.",
+    passwordErrorMessage: "Must be valid password.",
+    submitButton: "Register",
   }
 }
