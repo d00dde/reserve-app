@@ -13,9 +13,22 @@ export type TLoginLang = {
   passwordPlaceholder: string,
   phoneErrorMessage: string,
   passwordErrorMessage: string,
+  submitButton: string,
+}
+
+export type TRegisterLang = {
+  title: string,
+  namePlaceholder: string,
+  phonePlaceholder: string,
+  passwordPlaceholder: string,
+  nameErrorMessage: string,
+  phoneErrorMessage: string,
+  passwordErrorMessage: string,
+  submitButton: string,
 }
 
 export type TLanguageData = {
   navbar: TNavLang,
   loginForm: TLoginLang,
+  registerForm: TRegisterLang,
 };

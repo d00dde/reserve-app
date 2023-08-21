@@ -36,9 +36,6 @@ class AuthController {
 
   async login(req, res, next) {
     try {
-      await new Promise((res) => {
-        setTimeout(() => res(), 5000);
-      })
       const { phone, password } = req.body;
       const tokens = await userService.login(phone, password);
       res.cookie("accessToken", tokens.accessToken, { maxAge: 2592000000, httpOnly: true });
@@ -64,6 +61,7 @@ class AuthController {
   }
 
   async refresh(req, res, next) {
+    console.log("refresh")
     try {
       const { refreshToken } = req.cookies;
       const tokens = await userService.refresh(refreshToken);
