@@ -10,6 +10,7 @@ import style from './Navbar.module.css'
 function adminRoutes(lang: TNavLang) {
   return (
     <>
+      {commonRoutes(lang)}
       <li>
         <Link to="/manageTables">{lang.manageTablesLink}</Link>
       </li>
@@ -20,9 +21,12 @@ function adminRoutes(lang: TNavLang) {
   )
 }
 
-function userRoutes(lang: TNavLang) {
+function commonRoutes(lang: TNavLang) {
   return (
     <>
+      <li>
+        <Link to="/menu">{lang.menuLink}</Link>
+      </li>
       <li>
         <Link to="/reserveTable">{lang.reserveTableLink}</Link>
       </li>
@@ -33,6 +37,9 @@ function userRoutes(lang: TNavLang) {
 function defaultRoutes(lang: TNavLang) {
   return (
     <>
+      <li>
+        <Link to="/menu">{lang.menuLink}</Link>
+      </li>
       <li>
         <Link to="/login">{lang.loginLink}</Link>
       </li>
@@ -61,7 +68,7 @@ export function Navbar() {
     }
   }, [role, navigate]);
 
-  const links = role === "admin" ? adminRoutes(navbar) : role === "user" ? userRoutes(navbar) : defaultRoutes(navbar);
+  const links = role === "admin" ? adminRoutes(navbar) : role === "user" ? commonRoutes(navbar) : defaultRoutes(navbar);
   return (
     <nav className={style.navbar}>
       <div className="logo">
