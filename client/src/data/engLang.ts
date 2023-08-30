@@ -6,6 +6,7 @@ export const langData: TLanguageData = {
     loginLink: "Login",
     registerLink: "Register",
     reserveTableLink: "Reserve table",
+    menuLink: "Menu",
     manageTablesLink: "Manage tables",
     manageUsersLink: "Manage users",
   },

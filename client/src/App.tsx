@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import './App.css';
 import { Layout } from "./pages/Layout";
 import { StartPage } from "./pages/StartPage";
@@ -9,6 +9,7 @@ import { fetchRole } from "./api/userApi";
 import { useAppDispatch } from "./store/hooks";
 import { ManageTablesPage } from "./pages/ManageTablesPage";
 import { ManageUsersPage } from "./pages/ManageUsersPage";
+import { MenuPage } from "./pages/MenuPage";
 import { ReserveTablesPage } from "./pages/ReserveTablesPage";
 
 export function App() {
@@ -24,6 +25,7 @@ export function App() {
         <Route path="/register" element={<RegisterPage/>}/>
         <Route path="/reserveTable" element={<ReserveTablesPage/>}/>
         <Route path="/manageTables" element={<ManageTablesPage/>}/>
+        <Route path="/menu" element={<MenuPage/>}/>
         <Route path="/manageUsers" element={<ManageUsersPage/>}/>
         <Route path="*" element={<StartPage/>}/>
       </Route>

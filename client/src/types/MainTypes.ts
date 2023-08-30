@@ -3,6 +3,7 @@ export type TNavLang = {
   loginLink: string,
   registerLink: string,
   reserveTableLink: string,
+  menuLink: string,
   manageTablesLink: string,
   manageUsersLink: string,
 }

@@ -6,7 +6,7 @@ export function StartPagePromo() {
   const arrInterer = ['/img/interer/interer1.jpg', '/img/interer/interer2.jpg', '/img/interer/interer3.jpg', '/img/interer/interer4.jpg', '/img/interer/interer5.jpg'];
   return (
     <div className={style.content}>
-      <div 
+      <div
         className={style.start}
         style={{
           backgroundImage: 'url(/img/cucker.jpg)'
@@ -27,10 +27,11 @@ export function StartPagePromo() {
         <button className={style.beer}>Beer</button>
       </div>
       <Slider source={arrInterer}/>
-      <div 
+
+      <div
         className={style.shef}
       >
-        <div 
+        <div
         className={style.imgShef}
         style={{
           backgroundImage: 'url(/img/shef.jpg)'

@@ -1,0 +1,37 @@
+.wrapper {
+    list-style: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.subcategory label {
+    display: block;
+    background-color: #607D8B;
+    border: 1px solid #CFD8DC;
+    border-bottom-width: 0;
+    font-size: 1.3rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+    padding: 20px;
+}
+
+.subcategory label:hover {
+    background-color: #CFD8DC;
+    color: white;
+}
+
+.subcategory input {
+    display: none;
+}
+
+.subcategory ul {
+    list-style: none;
+    overflow: hidden;
+    height: 0;
+}
+
+.subcategory input:checked ~ ul {
+    height: inherit;
+}
