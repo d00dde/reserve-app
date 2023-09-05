@@ -3,9 +3,9 @@ import { menuData } from "../data/menuData";
 import { TMenuData } from "../types/MenuTypes";
 import { RootState } from "./store";
 
-export interface MenuState {
+export type MenuState = {
   menuData: TMenuData,
-}
+};
 
 const initialState: MenuState = {
   menuData,

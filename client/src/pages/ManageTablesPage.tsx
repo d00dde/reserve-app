@@ -1,7 +1,9 @@
+import { TablesList } from "../components/TablesList/TablesList";
+
 export function ManageTablesPage() {
   return (
     <div className="page">
-      <div className="start-content">Manage tables</div>
+      <TablesList />
     </div>
   );
 }

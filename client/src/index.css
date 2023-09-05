@@ -6,9 +6,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("../public/img/mainBg.jpg");
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --navbar-height: 50px;
+  --main-color: #607D8B;
+  --main-color-hover: #CFD8DC;
+  --text-light: #EEEEEE;
+  --text-dark: #333333;
 }

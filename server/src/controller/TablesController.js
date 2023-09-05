@@ -3,8 +3,8 @@ import { TablesModel } from "../model/TablesModel.js";
 class TablesController {
   async create(req, res, next) {
     try {
-      const { name, placesMin, placesMax } = req.body;
-      await TablesModel.addTable(name, placesMin, placesMax);
+      const { tableName, placesMin, placesMax } = req.body;
+      await TablesModel.addTable(tableName, placesMin, placesMax);
       res.json({ message: "New table created" });
     }
     catch(err) {

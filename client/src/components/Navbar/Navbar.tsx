@@ -1,5 +1,5 @@
 import {useCallback, useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { selectUser } from "../../store/userSlice";
 import { fetchLogout } from "../../api/userApi";
@@ -12,10 +12,10 @@ function adminRoutes(lang: TNavLang) {
     <>
       {commonRoutes(lang)}
       <li>
-        <Link to="/manageTables">{lang.manageTablesLink}</Link>
+        <NavLink to="/manageTables">{lang.manageTablesLink}</NavLink>
       </li>
       <li>
-        <Link to="/manageUsers">{lang.manageUsersLink}</Link>
+        <NavLink to="/manageUsers">{lang.manageUsersLink}</NavLink>
       </li>
     </>
   )
@@ -25,10 +25,10 @@ function commonRoutes(lang: TNavLang) {
   return (
     <>
       <li>
-        <Link to="/menu">{lang.menuLink}</Link>
+        <NavLink to="/menu">{lang.menuLink}</NavLink>
       </li>
       <li>
-        <Link to="/reserveTable">{lang.reserveTableLink}</Link>
+        <NavLink to="/reserveTable">{lang.reserveTableLink}</NavLink>
       </li>
     </>
   )
@@ -38,13 +38,13 @@ function defaultRoutes(lang: TNavLang) {
   return (
     <>
       <li>
-        <Link to="/menu">{lang.menuLink}</Link>
+        <NavLink to="/menu">{lang.menuLink}</NavLink>
       </li>
       <li>
-        <Link to="/login">{lang.loginLink}</Link>
+        <NavLink to="/login">{lang.loginLink}</NavLink>
       </li>
       <li>
-        <Link to="/register">{lang.registerLink}</Link>
+        <NavLink to="/register">{lang.registerLink}</NavLink>
       </li>
     </>
   )
@@ -71,11 +71,11 @@ export function Navbar() {
   const links = role === "admin" ? adminRoutes(navbar) : role === "user" ? commonRoutes(navbar) : defaultRoutes(navbar);
   return (
     <nav className={style.navbar}>
-      <div className="logo">
+      <div className={style.logo}>
         <Link to="/">{navbar.logo}</Link>
       </div>
       {name ? <div>{`Hi, ${name}`}</div> : null}
-      <ul className="links">
+      <ul className={style.links}>
         {links}
         {role !== "none" ? <button onClick={() => dispatch(fetchLogout())}>Logout</button> : null}
       </ul>

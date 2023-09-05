@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "../../store/hooks";
 import { selectMain } from "../../store/mainSlice";
 
-export function ErrorManager() {
+export function UserMessage() {
   const [errorMessages, setErrorMessages] = useState<{key: number, message: string, type: string }[]>([]);
   const { message } = useAppSelector(selectMain);
   useEffect(() => {

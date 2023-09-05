@@ -1,0 +1,39 @@
+.inputWrapper {
+    position: relative;
+    margin: 20px;
+}
+
+.inputWrapper input {
+    padding: 10px;
+    width: 100%;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5px;
+    background-color: #fff;
+    transition: font-size 0.3s, top 0.3s;
+}
+
+.title.active {
+    top: -7px;
+    font-size: 0.8rem;
+    background-color: inherit;
+}
+
+.changeHide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+}
+
+.validationMessage {
+    position: absolute;
+    bottom: -15px;
+    left: 5px;
+    font-size: 12px;
+    color: red;
+}

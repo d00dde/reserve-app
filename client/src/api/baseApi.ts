@@ -13,7 +13,7 @@ api.interceptors.response.use(
     if (error.response.status === 401 && error.config && !error.config._isRutry) {
       original._isRutry = true;
       try {
-        await axios.get("/api/v1/auth/refresh", {withCredentials: true});
+        await axios.post(`${config.apiBaseUrl}/api/v1/auth/refresh`, {withCredentials: true});
         return api.request(original);
       }
       catch (err) {

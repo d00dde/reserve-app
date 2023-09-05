@@ -1,61 +1,53 @@
-import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchLogin } from "../../api/userApi";
 import { selectMain } from "../../store/mainSlice";
+import { Form } from "../Form/Form";
+import { TLoginData } from "../../types/UserTypes";
+import style from "./LoginForm.module.css";
 
 export function LoginForm() {
   const { languageData: { loginForm } } = useAppSelector(selectMain);
-  const [phone, setPhone] = useState("+380972074557");
-  const [password, setPassword] = useState("lolofre");
-  const [phoneError, setPhoneError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const dispatch = useAppDispatch();
 
-  const phoneInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.value.match(/^\+380\d{9}$/)) {
-      setPhoneError("");
+  const validate = (name: keyof TLoginData, value: string | number) => {
+    if (typeof value === "number") {
+      return false;
     }
-    else {
-      setPhoneError(loginForm.phoneErrorMessage);
+    switch (name) {
+      case "phone":
+        return !value.match(/^\+380\d{9}$/);
+      case "password":
+        return !value.match(/^\w{3,15}$/);
     }
-    setPhone(e.target.value);
-  }
+  };
 
-  const passwordInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.value.match(/^\+380\d{9}$/)) {
-      setPasswordError("");
-    }
-    else {
-      setPasswordError(loginForm.passwordErrorMessage);
-    }
-    setPassword(e.target.value);
-  }
-
-  const submitHandler = () => {
-    if(phoneError || passwordError) {
-      return;
-    }
-    dispatch(fetchLogin({ phone, password }));
+  const submit = (data: TLoginData) => {
+    dispatch(fetchLogin(data));
   }
 
   return (
-    <div className="login-form">
-      <h2 className="title">{loginForm.title}</h2>
-      <input
-        type="text"
-        placeholder={loginForm.phonePlaceholder}
-        onChange={phoneInputHandler}
-        value={phone}
-      />
-      {phoneError ? <div className="validation phone">{phoneError}</div> : null}
-      <input
-        type="password"
-        placeholder={loginForm.passwordPlaceholder}
-        onChange={passwordInputHandler}
-        value={password}
-      />
-      <button onClick={submitHandler}>{loginForm.submitButton}</button>
-      {passwordError ? <div className="validation password">{passwordError}</div> : null}
-    </div>
+    <Form<TLoginData>
+      className={style.loginForm}
+      title={loginForm.title}
+      validate={validate}
+      submitButtonText={loginForm.submitButton}
+      submitHandler={submit}
+      fields={[
+        {
+          name: "phone",
+          type: "text",
+          defaultValue: "+380972074557",
+          title: loginForm.phoneTitle,
+          errorMessage: loginForm.phoneErrorMessage,
+        },
+        {
+          name: "password",
+          type: "password",
+          defaultValue: "lolofre",
+          title: loginForm.passwordTitle,
+          errorMessage: loginForm.passwordErrorMessage,
+        },
+      ]}
+    />
   );
 }
