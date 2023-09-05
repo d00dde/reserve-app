@@ -6,6 +6,7 @@ export type TNavLang = {
   menuLink: string,
   manageTablesLink: string,
   manageUsersLink: string,
+  logout: string,
 }
 
 export type TLoginLang = {

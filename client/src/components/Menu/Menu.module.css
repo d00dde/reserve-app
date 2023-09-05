@@ -14,8 +14,35 @@
     flex-grow: 1;
     background-color: #eee;
     cursor: pointer;
+    transition: flex-grow .3s;
 }
 
 .category.active {
     background-color: #333;
+    flex-grow: 2;
 }
+
+.menuItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 45px 15px 15px;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: color .3s;
+}
+
+.menuItem:hover {
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.filler {
+    flex-grow: 1;
+    border-bottom: 2px dotted var(--text-dark);
+    margin: 0 10px;
+}
+
+.menuItem:hover .filler {
+    border-color: var(--main-color);
+}
+
