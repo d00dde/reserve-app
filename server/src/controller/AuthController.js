@@ -8,7 +8,6 @@ class AuthController {
   async register(req, res, next) {
     try {
       const errors = validationResult(req);
-      console.log(errors)
       if(!errors.isEmpty()) {
         throw ApiErrorHelper.badRequest("Validation error", errors.array());
       }

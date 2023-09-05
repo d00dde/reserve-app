@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import './App.css';
 import { Layout } from "./pages/Layout";
 import { StartPage } from "./pages/StartPage";

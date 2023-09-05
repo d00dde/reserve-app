@@ -10,8 +10,8 @@ export type TNavLang = {
 
 export type TLoginLang = {
   title: string,
-  phonePlaceholder: string,
-  passwordPlaceholder: string,
+  phoneTitle: string,
+  passwordTitle: string,
   phoneErrorMessage: string,
   passwordErrorMessage: string,
   submitButton: string,
@@ -19,12 +19,23 @@ export type TLoginLang = {
 
 export type TRegisterLang = {
   title: string,
-  namePlaceholder: string,
-  phonePlaceholder: string,
-  passwordPlaceholder: string,
+  nameTitle: string,
+  phoneTitle: string,
+  passwordTitle: string,
   nameErrorMessage: string,
   phoneErrorMessage: string,
   passwordErrorMessage: string,
+  submitButton: string,
+}
+
+export type TCreateTableLang = {
+  title: string,
+  tableNameTitle: string,
+  minPlacesTitle: string,
+  maxPlacesTitle: string,
+  tableNameErrorMessage: string,
+  minPlacesErrorMessage: string,
+  maxPlacesErrorMessage: string,
   submitButton: string,
 }
 
@@ -32,4 +43,5 @@ export type TLanguageData = {
   navbar: TNavLang,
   loginForm: TLoginLang,
   registerForm: TRegisterLang,
+  createTableForm: TCreateTableLang,
 };

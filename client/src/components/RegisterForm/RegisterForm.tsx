@@ -1,80 +1,63 @@
-import React, { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchRegister } from "../../api/userApi";
 import { selectMain } from "../../store/mainSlice";
+import { Form } from "../Form/Form";
+import { TRegisterData } from "../../types/UserTypes";
+import style from "./RegisterForm.module.css";
 
 export function RegisterForm() {
   const { languageData: { registerForm } } = useAppSelector(selectMain);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("+380972074557");
-  const [password, setPassword] = useState("lolofre");
-  const [nameError, setNameError] = useState("");
-  const [phoneError, setPhoneError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
   const dispatch = useAppDispatch();
 
-  const nameInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.value.match(/^\w{3,15}$/)) {
-      setNameError("");
+  const validate = (name: keyof TRegisterData, value: string | number) => {
+    if (typeof value === "number") {
+      return false;
     }
-    else {
-      setNameError(registerForm.nameErrorMessage);
+    switch (name) {
+      case "name":
+        return !value.match(/^\w{3,15}$/);
+      case "phone":
+        return !value.match(/^\+380\d{9}$/);
+      case "password":
+        return !value.match(/^\w{3,15}$/);
     }
-    setName(e.target.value);
-  }
+  };
 
-  const phoneInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.value.match(/^\+380\d{9}$/)) {
-      setPhoneError("");
-    }
-    else {
-      setPhoneError(registerForm.phoneErrorMessage);
-    }
-    setPhone(e.target.value);
-  }
-
-  const passwordInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if(e.target.value.match(/^\+380\d{9}$/)) {
-      setPasswordError("");
-    }
-    else {
-      setPasswordError(registerForm.passwordErrorMessage);
-    }
-    setPassword(e.target.value);
-  }
-
-  const submitHandler = () => {
-    if(nameError || phoneError || passwordError) {
-      return;
-    }
-    dispatch(fetchRegister({ name, phone, password }));
+  const submit = (data: TRegisterData) => {
+    console.log(data)
+    dispatch(fetchRegister(data));
   }
 
   return (
-    <div className="login-form">
-      <h2 className="title">{registerForm.title}</h2>
-      <input
-        type="text"
-        placeholder={registerForm.namePlaceholder}
-        onChange={nameInputHandler}
-        value={name}
-      />
-      {nameError ? <div className="validation name">{nameError}</div> : null}
-      <input
-        type="text"
-        placeholder={registerForm.phonePlaceholder}
-        onChange={phoneInputHandler}
-        value={phone}
-      />
-      {phoneError ? <div className="validation phone">{phoneError}</div> : null}
-      <input
-        type="password"
-        placeholder={registerForm.passwordPlaceholder}
-        onChange={passwordInputHandler}
-        value={password}
-      />
-      <button onClick={submitHandler}>{registerForm.submitButton}</button>
-      {passwordError ? <div className="validation password">{passwordError}</div> : null}
-    </div>
+    <Form<TRegisterData>
+      className={style.registerForm}
+      title={registerForm.title}
+      validate={validate}
+      submitButtonText={registerForm.submitButton}
+      submitHandler={submit}
+      fields={[
+        {
+          name: "name",
+          type: "text",
+          defaultValue: "JohnSmith",
+          title: registerForm.nameTitle,
+          errorMessage: registerForm.nameErrorMessage,
+        },
+        {
+          name: "phone",
+          type: "text",
+          defaultValue: "+380972074559",
+          title: registerForm.phoneTitle,
+          errorMessage: registerForm.phoneErrorMessage,
+        },
+        {
+          name: "password",
+          type: "password",
+          defaultValue: "lolokek",
+          title: registerForm.passwordTitle,
+          errorMessage: registerForm.passwordErrorMessage,
+        },
+      ]}
+    />
   );
 }

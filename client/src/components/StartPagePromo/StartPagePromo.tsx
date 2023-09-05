@@ -1,31 +1,20 @@
 import style from './StartPagePromo.module.css';
-import {Slider} from '../Slider/Slider'
+import { Slider } from '../Slider/Slider'
 
 export function StartPagePromo() {
   const arrFood = ['/img/food/food1.jpg', '/img/food/food2.jpg', '/img/food/food3.jpg', '/img/food/food4.jpg', '/img/food/food5.jpg'];
   const arrInterer = ['/img/interer/interer1.jpg', '/img/interer/interer2.jpg', '/img/interer/interer3.jpg', '/img/interer/interer4.jpg', '/img/interer/interer5.jpg'];
   return (
     <div className={style.content}>
-      <div
-        className={style.start}
-        style={{
-          backgroundImage: 'url(/img/cucker.jpg)'
-        }}
-      >
+      <div className={style.startScreen}>
+        <div className={style.startImage}>
+          <img src="/img/cucker.jpg" alt="start screen picture"/>
+        </div>
         <div className={style.title}>
           The <br/> RestoMagic
         </div>
       </div>
       <Slider source={arrFood} isCircle = {false}/>
-      <div className={style.menu}>
-        <button className={style.lanch}>Lanch</button>
-        <button className={style.dinner}>Dinner</button>
-        <button className={style.child}>Children</button>
-        <button className={style.cocteils}>Cocteils</button>
-        <button className={style.dessert}>Dessert</button>
-        <button className={style.wines}>Wines</button>
-        <button className={style.beer}>Beer</button>
-      </div>
       <Slider source={arrInterer}/>
 
       <div

@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
-import { ErrorManager } from "../components/ErrorManager/ErrorManager";
+import { UserMessage } from "../components/ErrorManager/UserMessage";
 import { Loader } from "../components/Loader/Loader";
 
 export function Layout() {
@@ -10,7 +10,7 @@ export function Layout() {
       <Navbar/>
       <Outlet/>
       <Footer/>
-      <ErrorManager/>
+      <UserMessage/>
       <Loader/>
     </>
   );

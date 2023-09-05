@@ -1,0 +1,17 @@
+.button {
+    position: relative;
+    margin: 20px;
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: lightblue;
+}
+
+.secondary {
+    background-color: lightgreen;
+}

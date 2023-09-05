@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from "./store";
 import { TUserData } from "../types/UserTypes";
 
-export interface UserState {
-  userData: TUserData
-}
+export type UserState = {
+  userData: TUserData,
+};
 
 const initialState: UserState = {
   userData: {
