@@ -16,8 +16,8 @@ code {
 
 :root {
   --navbar-height: 50px;
-  --main-color: #607D8B;
-  --main-color-hover: #CFD8DC;
-  --text-light: #EEEEEE;
+  --main-color: #005792;
+  --main-color-hover: #00bbf0;
+  --text-light: #FFD700;
   --text-dark: #333333;
 }

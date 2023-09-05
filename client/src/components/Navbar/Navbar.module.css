@@ -22,6 +22,14 @@
     font-size: 1.3rem;
 }
 
+.hello {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-light);
+    font-size: 1.3rem;
+}
+
 
 .links {
     margin: 0;

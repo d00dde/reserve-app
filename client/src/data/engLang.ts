@@ -9,6 +9,7 @@ export const langData: TLanguageData = {
     menuLink: "Menu",
     manageTablesLink: "Manage tables",
     manageUsersLink: "Manage users",
+    logout: "Logout",
   },
   loginForm: {
     title: "Set you phone number and password.",

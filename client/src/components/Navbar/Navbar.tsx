@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { selectUser } from "../../store/userSlice";
 import { fetchLogout } from "../../api/userApi";
 import { selectMain } from "../../store/mainSlice";
+import { Button}  from "../../elements/Button/Button";
 import { TNavLang } from "../../types/MainTypes";
 import style from './Navbar.module.css'
 
@@ -74,10 +75,10 @@ export function Navbar() {
       <div className={style.logo}>
         <Link to="/">{navbar.logo}</Link>
       </div>
-      {name ? <div>{`Hi, ${name}`}</div> : null}
+      {name ? <div className={style.hello}>{`Hi, ${name}`}</div> : null}
       <ul className={style.links}>
         {links}
-        {role !== "none" ? <button onClick={() => dispatch(fetchLogout())}>Logout</button> : null}
+        {role !== "none" ? <Button onClick={() => dispatch(fetchLogout())} title={navbar.logout} type="secondary"/> : null}
       </ul>
     </nav>
   );

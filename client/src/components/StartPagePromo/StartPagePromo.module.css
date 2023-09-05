@@ -35,26 +35,26 @@
     font-weight: 700;
     line-height: 1;
     text-align: center;
-    color: azure;
+    color: var(--text-light);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.shef {
+.chef {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    color: var(--text-light);
     width: 100%;
     min-height: 700px;
 }
 
-.imgShef {
+.imgChef {
     width: 30%;
     height: 30vw;
     background-size: cover;
     border-radius: 2%;
 }
-.resume {
+.summary {
     width: 60%;
     min-height: 50vh;
 }
