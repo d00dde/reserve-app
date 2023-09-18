@@ -13,4 +13,8 @@ export type TMenuItem = {
   description: string,
   photoUrl: string,
   price: number,
+  unit: string,
+  scale: number,
+  isScaled: number,
+  cost: number,
 }

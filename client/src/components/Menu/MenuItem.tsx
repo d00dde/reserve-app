@@ -15,7 +15,8 @@ export function MenuItem ({ data }: { data: TMenuItem }) {
       >
         <div className={style.data}>{data.name}</div>
         <div className={style.filler}></div>
-        <div className={style.data}>{data.price}</div>
+        <div className={style.data}>{data.cost}</div>
+        <div className={style.unit}>{data.unit}</div>
       </li>
       { showModal ?
         <Modal closeHandler={closeHandler}>

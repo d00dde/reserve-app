@@ -5,7 +5,7 @@
     min-height: 80vh;
     margin-top: 20px;
     padding: 20px 40px;
-    background-image: url("../../../public/img/paperBg.jpg");
+    background-image: url("../../../public/img/paperBg.webp");
     background-size: contain;
     border-radius: 5px;
 }

@@ -46,3 +46,8 @@
     border-color: var(--main-color);
 }
 
+.unit {
+    padding-left: 5px;
+}
+
+

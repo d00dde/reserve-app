@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { menuData } from "../data/menuData";
 import { TMenuData } from "../types/MenuTypes";
 import { RootState } from "./store";
 
@@ -8,7 +7,7 @@ export type MenuState = {
 };
 
 const initialState: MenuState = {
-  menuData,
+  menuData: [],
 };
 
 export const menuSlice = createSlice({

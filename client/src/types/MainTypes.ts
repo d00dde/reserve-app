@@ -40,9 +40,14 @@ export type TCreateTableLang = {
   submitButton: string,
 }
 
+export type TMenuLang = {
+  addItemButton: string,
+}
+
 export type TLanguageData = {
   navbar: TNavLang,
   loginForm: TLoginLang,
   registerForm: TRegisterLang,
   createTableForm: TCreateTableLang,
+  menu: TMenuLang,
 };

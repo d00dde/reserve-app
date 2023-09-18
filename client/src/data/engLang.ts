@@ -39,4 +39,7 @@ export const langData: TLanguageData = {
     maxPlacesErrorMessage: "Maximal places is not valid",
     submitButton: "Create table",
   },
+  menu: {
+    addItemButton: "ADD",
+  }
 }

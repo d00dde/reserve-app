@@ -16,15 +16,15 @@ export class UserModel {
   }
 
   static async activate(id) {
-    return connection.query(`UPDATE users SET isActive = 1 WHERE id = ${id};`);
+    return connection.query(`UPDATE users SET isActive = 1 WHERE id = '${id}';`);
   }
 
   static async setRefreshToken(id, refreshToken) {
-    return connection.query(`UPDATE users SET refreshToken = "${refreshToken}" WHERE id = ${id};`);
+    return connection.query(`UPDATE users SET refreshToken = "${refreshToken}" WHERE id = '${id}';`);
   }
 
   static async deleteRefreshToken(refreshToken) {
-    return connection.query(`UPDATE users SET refreshToken = NULL WHERE refreshToken = "${refreshToken}";`);
+    return connection.query(`UPDATE users SET refreshToken = NULL WHERE refreshToken = '${refreshToken}';`);
   }
 
   static async findUserByToken(refreshToken) {
