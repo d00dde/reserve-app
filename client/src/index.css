@@ -18,6 +18,8 @@ code {
   --navbar-height: 50px;
   --main-color: #005792;
   --main-color-hover: #00bbf0;
+  --delete-color: #DC143C;
+  --delete-color-hover: #eb2d53;
   --text-light: #FFD700;
   --text-dark: #333333;
 }

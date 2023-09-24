@@ -3,6 +3,10 @@
     margin: 20px;
 }
 
+.checkboxWrapper {
+    display: flex;
+}
+
 .inputWrapper input {
     padding: 10px;
     width: 100%;
@@ -14,7 +18,11 @@
     transform: translateY(-50%);
     left: 5px;
     background-color: #fff;
-    transition: font-size 0.3s, top 0.3s;
+    transition: font-size .3s, top .3s;
+}
+
+.checkboxTitle {
+    display: flex;
 }
 
 .title.active {

@@ -31,3 +31,14 @@
     background-color: var(--main-color-hover);
     color: var(--text-dark);
 }
+
+.delete {
+    background-color: var(--delete-color);
+    border: 3px solid var(--delete-color);
+}
+
+.delete:hover {
+    background-color: var(--delete-color-hover);
+    border: 3px solid var(--delete-color-hover);
+    color: var(--text-dark);
+}

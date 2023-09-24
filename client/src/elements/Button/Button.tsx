@@ -1,6 +1,6 @@
 import style from "./Button.module.css";
 
-type TButtonType =  "primary" | "secondary";
+type TButtonType =  "primary" | "secondary" | "delete";
 
 type TProps = {
   type?: TButtonType,
@@ -13,6 +13,7 @@ export function Button({ title, onClick, type = "primary" } : TProps) {
     switch (type) {
       case "primary": return style.primary;
       case "secondary": return style.secondary;
+      case "delete": return style.delete;
     }
   }
   return (
