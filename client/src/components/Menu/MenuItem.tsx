@@ -9,7 +9,7 @@ export function MenuItem ({ data }: { data: TMenuItem }) {
   return (
     <>
       <li
-        key={data.name}
+        key={data.id}
         onClick={() => setShowModal(true)}
         className={style.menuItem}
       >

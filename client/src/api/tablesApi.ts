@@ -2,7 +2,8 @@ import { api } from "./baseApi";
 import { AppDispatch } from "../store/store";
 import { setLoading, setError, setSuccess } from "../store/mainSlice";
 import { setTablesData } from "../store/tableSlice";
-import { TResponseData, TTableData, TCreateData } from "../types/TablesTypes";
+import { TTableData, TCreateData } from "../types/TablesTypes";
+import { TResponseData } from "../types/ApiTypes";
 
 export const fetchGetTables = () => async (dispatch: AppDispatch) => {
   try {

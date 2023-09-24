@@ -9,8 +9,8 @@ export function LoginForm() {
   const { languageData: { loginForm } } = useAppSelector(selectMain);
   const dispatch = useAppDispatch();
 
-  const validate = (name: keyof TLoginData, value: string | number) => {
-    if (typeof value === "number") {
+  const validate = (name: keyof TLoginData, value: string | number | boolean) => {
+    if (typeof value === "number" || typeof value === "boolean") {
       return false;
     }
     switch (name) {

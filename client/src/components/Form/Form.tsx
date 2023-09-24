@@ -2,16 +2,20 @@ import { useState } from "react";
 import { Input } from "../../elements/Input/Input";
 import { PasswordInput } from "../../elements/Input/PasswordInput";
 import { NumberInput } from "../../elements/Input/NumberInput";
+import { TextArea } from "../../elements/Input/TextArea";
+import { CheckboxInput } from "../../elements/Input/CheckboxInput";
 import { Button } from "../../elements/Button/Button";
 import { Title } from "../../elements/Title/Title";
+import { AutocompleteInput } from "../../elements/Input/AutocompleteInput";
 
 type TProps<T extends Record<string, any>> = {
   title: string,
   className?: string,
-  validate: (item: keyof T, value: string | number) => boolean,
+  validate: (item: keyof T, value: string | number | boolean) => boolean,
   fields: {
-    type: "text" | "password" | "number",
-    defaultValue?: string,
+    type: "text" | "password" | "number" | "checkbox" | "textArea" | "autocomplete",
+    defaultValue?: string | number | boolean,
+    datalist?: string[],
     name: keyof T,
     title: string,
     errorMessage: string,
@@ -20,10 +24,12 @@ type TProps<T extends Record<string, any>> = {
   submitButtonText: string,
 }
 
-export function Form<T extends Record<string, string | number>>({ className, title, fields, validate, submitHandler, submitButtonText }: TProps<T>) {
+export function Form<T extends Record<string, string | number | boolean>>({ className, title, fields, validate, submitHandler, submitButtonText }: TProps<T>) {
   const [formData, setFormData] = useState<T>(() => {
     return fields.reduce((state, item) => {
-      state[item.name] = (item.defaultValue ?? (item.type === "number" ? 0 : "")) as T[keyof T];
+      state[item.name] = (item.defaultValue ??
+        (item.type === "number" ? 0 : item.type === "checkbox" ? false : "")
+      ) as T[keyof T];
       return state;
     }, {} as T);
   });
@@ -35,7 +41,7 @@ export function Form<T extends Record<string, string | number>>({ className, tit
     }, {} as Record<keyof T, boolean>);
   });
 
-  const formHandler = (name: keyof T, value: string | number) => {
+  const formHandler = (name: keyof T, value: string | number | boolean) => {
     setFormErrors((prev ) => ({ ...prev, [name]: validate(name, value) }));
     setFormData({
       ...formData,
@@ -64,12 +70,20 @@ export function Form<T extends Record<string, string | number>>({ className, tit
             value={formData[input.name] as string}
             validation={formErrors[input.name] ? input.errorMessage : undefined}
           />;
+          case "textArea": return <TextArea
+            onChange={formHandler}
+            name={input.name.toString()}
+            key={input.name.toString()}
+            title={input.title}
+            value={formData[input.name] as string}
+            validation={formErrors[input.name] ? input.errorMessage : undefined}
+          />;
           case "password": return <PasswordInput
             onChange={formHandler}
             name={input.name.toString()}
             key={input.name.toString()}
             title={input.title}
-            value={formData[input.name] as number}
+            value={formData[input.name] as string}
             validation={formErrors[input.name] ? input.errorMessage : undefined}
           />;
           case "number": return <NumberInput
@@ -78,6 +92,22 @@ export function Form<T extends Record<string, string | number>>({ className, tit
             key={input.name.toString()}
             title={input.title}
             value={formData[input.name] as number}
+            validation={formErrors[input.name] ? input.errorMessage : undefined}
+          />;
+          case "checkbox": return <CheckboxInput
+            onChange={formHandler}
+            name={input.name.toString()}
+            key={input.name.toString()}
+            title={input.title}
+            value={formData[input.name] as unknown as boolean}
+          />;
+          case "autocomplete": return <AutocompleteInput
+            onChange={formHandler}
+            name={input.name.toString()}
+            key={input.name.toString()}
+            title={input.title}
+            value={formData[input.name] as string}
+            datalist={input.datalist ?? []}
             validation={formErrors[input.name] ? input.errorMessage : undefined}
           />;
         }

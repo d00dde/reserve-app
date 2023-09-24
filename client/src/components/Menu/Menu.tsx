@@ -1,20 +1,21 @@
-import {useEffect, useMemo, useState} from "react";
-import {useAppDispatch, useAppSelector} from "../../store/hooks";
+import { useEffect, useMemo, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { selectMenu } from "../../store/menuSlice";
 import { selectUser } from "../../store/userSlice";
 import styles from './Menu.module.css';
+import { MenuAdminPanel } from "../MenuAdminPanel/MenuAdminPanel";
 import { Accordion } from "../Accordion/Accordion";
 import { MenuItem } from "./MenuItem";
+import { AdminMenuItem } from "./AdminMenuItem";
 import { TMenuItem } from "../../types/MenuTypes";
-import { fetchGetUserMenu } from "../../api/menuApi";
-import {MenuAdminPanel} from "../MenuAdminPanel/MenuAdminPanel";
+import { fetchGetMenu } from "../../api/menuApi";
 
 export function Menu() {
   const { menuData } = useAppSelector(selectMenu);
   const { userData } = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(fetchGetUserMenu());
+    dispatch(fetchGetMenu());
   }, [dispatch]);
   const [ active, setActive ] = useState("");
   useEffect(() => {
@@ -26,10 +27,16 @@ export function Menu() {
     }
   }, [menuData]);
   const categoryData = useMemo(
-    () => menuData.find((item) => item.categoryName === active),
+    () => {
+      const activeCategory = menuData.find((item) => item.categoryName === active);
+      if (activeCategory) {
+        return activeCategory;
+      }
+      return menuData[0];
+    },
     [ active, menuData ]
   );
-  const itemHandler = (itemData: TMenuItem) => <MenuItem data={itemData} key={itemData.name}/>;
+  const itemHandler = (itemData: TMenuItem) => userData.role === "admin" ? <AdminMenuItem data={itemData} key={itemData.name}/> : <MenuItem data={itemData} key={itemData.name}/>;
   return(
     <>
       {active ?

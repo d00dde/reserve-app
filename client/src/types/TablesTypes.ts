@@ -4,9 +4,7 @@ export type TCreateData = {
   placesMax: number,
 }
 
-export type TResponseData = {
-  message: string,
-}
+
 
 export type TTableData = {
   id: number,

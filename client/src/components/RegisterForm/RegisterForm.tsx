@@ -9,8 +9,8 @@ export function RegisterForm() {
   const { languageData: { registerForm } } = useAppSelector(selectMain);
   const dispatch = useAppDispatch();
 
-  const validate = (name: keyof TRegisterData, value: string | number) => {
-    if (typeof value === "number") {
+  const validate = (name: keyof TRegisterData, value: string | number | boolean) => {
+    if (typeof value === "number" || typeof value === "boolean") {
       return false;
     }
     switch (name) {

@@ -40,8 +40,30 @@ export type TCreateTableLang = {
   submitButton: string,
 }
 
-export type TMenuLang = {
+export type TMenuCreateLang = {
   addItemButton: string,
+  createItemTitle: string,
+  nameTitle: string,
+  descriptionTitle: string,
+  photoUrlTitle: string,
+  categoryTitle: string,
+  subCategoryTitle: string,
+  priceTitle: string,
+  unitTitle: string,
+  scaleTitle: string,
+  isScaledTitle: string,
+  nameErrorMessage: string,
+  descriptionErrorMessage: string,
+  photoUrlErrorMessage: string,
+  categoryErrorMessage: string,
+  subCategoryErrorMessage: string,
+  priceErrorMessage: string,
+  unitErrorMessage: string,
+  scaleErrorMessage: string,
+  submitButton: string,
+  editButton: string,
+  scaleBaseTitle: string,
+  setScaleBaseButton: string,
 }
 
 export type TLanguageData = {
@@ -49,5 +71,5 @@ export type TLanguageData = {
   loginForm: TLoginLang,
   registerForm: TRegisterLang,
   createTableForm: TCreateTableLang,
-  menu: TMenuLang,
+  menuCreate: TMenuCreateLang,
 };

@@ -12,7 +12,7 @@ export function CreateTableForm({ closeHandler }: TProps) {
   const dispatch = useAppDispatch();
   const { languageData: { createTableForm } } = useAppSelector(selectMain);
 
-  const validate = (name: keyof TCreateData, value: string | number) => {
+  const validate = (name: keyof TCreateData, value: string | number | boolean) => {
     switch (name) {
       case "tableName":
         return typeof value !== "string" || value.length < 3;
